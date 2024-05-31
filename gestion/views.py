@@ -17,3 +17,11 @@ def añadirDestino(request):
     else:
         form =  DestinosTuristicosForm()
     return render(request, 'añadirDestino.html', {'form': form}) 
+
+def modificarDestino(request, id):
+    destino = get_object_or_404(DestinosTuristicos, id=id)
+    if request.method == 'POST':
+        form = DestinosTuristicosForm(request.POST, request.FILES, instance=destino)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_destinos')
