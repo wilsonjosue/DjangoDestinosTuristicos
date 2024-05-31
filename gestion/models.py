@@ -9,6 +9,9 @@ class DistinosTuristicos(models.Model):
     precioTour = models.DecimalField(max_digits = 10, dicimal_place = 2)
     ofertaTour = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.nombreCiudad
+
 
 
 
