@@ -8,3 +8,10 @@ def listarDestinos(request):
     destinos = DestinosTuristicos.objects.all()#para obtener todos los registros del modelo DestinosTuristicos.
     return render(request,'destinations.html',{'destinos': destinos})
 
+def añadirDestino(request):
+    if request.method == 'POST':
+        form = DestinosTuristicosForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('listarDestinos')
+
