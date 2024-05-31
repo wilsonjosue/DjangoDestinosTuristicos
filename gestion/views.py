@@ -14,4 +14,6 @@ def añadirDestino(request):
         if form.is_valid():
             form.save()
             return redirect('listarDestinos')
-
+    else:
+        form =  DestinosTuristicosForm()
+    return render(request, 'añadirDestino.html', {'form': form}) 
