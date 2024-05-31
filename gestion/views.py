@@ -8,6 +8,7 @@ def listarDestinos(request):
     destinos = DestinosTuristicos.objects.all()#para obtener todos los registros del modelo DestinosTuristicos.
     return render(request,'destinations.html',{'destinos': destinos})
 
+"""Permite añadir un nuevo destino turístico."""
 def añadirDestino(request):
     if request.method == 'POST':
         form = DestinosTuristicosForm(request.POST, request.FILES)
@@ -18,13 +19,23 @@ def añadirDestino(request):
         form = DestinosTuristicosForm()
     return render(request, 'añadirDestino.html', {'form': form}) 
 
+"""Permite modificar un destino turístico existente."""
 def modificarDestino(request, id):
     destino = get_object_or_404(DestinosTuristicos, id=id)
     if request.method == 'POST':
         form = DestinosTuristicosForm(request.POST, request.FILES, instance=destino)
         if form.is_valid():
             form.save()
-            return redirect('listar_destinos')
+            return redirect('listarDestinos')
     else:
         form = DestinosTuristicosForm(instance=destino)
     return render(request, 'añadirDestino.html', {'form': form})
+
+"""Permite eliminar un destino turístico."""
+def eliminarDestino(request, id):
+    destino = get_object_or_404(DestinosTuristicos, id=id)
+    if request.method == 'POST':
+        destino.delete()
+        return redirect('listarDestinos')
+    return render(request, 'eliminarDestino.html', {'destino': destino})
+
