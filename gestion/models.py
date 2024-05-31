@@ -7,7 +7,7 @@ class DistinosTuristicos(models.Model):
     descripcionCiudad = models.TextField()# Campo de texto largo
     imagenCiudad = models.ImageField(upload_to = 'images/')
     precioTour = models.DecimalField(max_digits = 10, dicimal_place = 2)
-    ofertaTour =
+    ofertaTour = models.BooleanField(default=False)
 
 
 
