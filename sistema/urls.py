@@ -25,6 +25,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('gestion.urls')),
-    path('destinos/', include('gestion.urls')),
+    path('', include('travello.urls')),
+    path('destinos/', include('travello.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#Añade una nueva ruta a urlpatterns para servir archivos de medios.
