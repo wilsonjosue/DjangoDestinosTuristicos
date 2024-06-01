@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gestion',
+    'travello',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'assets')
 
 # Configurar las rutas media files (CSS, JavaScript, Images)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'gestion/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'travello/media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
