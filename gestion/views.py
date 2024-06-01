@@ -43,8 +43,3 @@ def eliminarDestino(request, id):
         destino.delete()#Elimina el destino 
         return redirect('listarDestinos')#Redirige a la vista listarDestinos.
     return render(request, 'eliminarDestino.html', {'destino': destino})
-
-# Nueva vista para listar destinos
-def destinations_view(request):
-    destinos = DestinosTuristicos.objects.all()
-    return render(request, 'destinations.html', {'destinos': destinos})
