@@ -18,7 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
+#Importa el objeto settings de Django, que contiene las configuraciones del proyecto, relacionadas con archivos estáticos y de medios.
+from django.conf import settings 
+#Importa la función static que se utiliza para servir archivos estáticos y de medios durante el desarrollo.
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
      path('destinos/', include('gestion.urls')),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#Añade una nueva ruta a urlpatterns para servir archivos de medios.
