@@ -249,6 +249,7 @@
 					<div class="destinations_container item_grid">
 
 						<!-- Destination -->
+						{% for dest in dests %}
 						<div class="destination item">
 							<div class="destination_image">
 								<img src="{% static 'images/destination_1.jpg' %}" alt="">
@@ -260,7 +261,7 @@
 								<div class="destination_price">From ${{dest1.precioTour}}</div>
 							</div>
 						</div>
-						
+                        {% endfor %}
 					</div>
 				</div>
 			</div>

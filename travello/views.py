@@ -17,9 +17,9 @@ def index(request):
     dest2.precioTour = 650
     dest2.ofertaTour = False
 
-    dest=[dest1,dest2]
+    dests=[dest1,dest2]
 
-    return render(request,"index.html",{'dest':dest})
+    return render(request,"index.html",{'dests':dests})
 
 """Esta vista lista todos los destinos turísticos."""
 def listarDestinos(request):
