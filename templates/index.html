@@ -252,12 +252,12 @@
 						<div class="destination item">
 							<div class="destination_image">
 								<img src="{% static 'images/destination_1.jpg' %}" alt="">
-								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								<div class="spec_offer text-center"><a href="#">{{dest1.ofertaTour}}</a></div>
 							</div>
 							<div class="destination_content">
 								<div class="destination_title"><a href="destinations.html">{{dest1.nombreCiudad}}</a></div>
-								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-								<div class="destination_price">From ${{price}}</div>
+								<div class="destination_subtitle"><p>{{dest1.descripcionCiudad}}</p></div>
+								<div class="destination_price">From ${{dest1.precioTour}}</div>
 							</div>
 						</div>
 

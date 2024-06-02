@@ -7,6 +7,9 @@ from .forms import DestinosTuristicosForm# Importa el modelo DestinosTuristicosF
 def index(request):
     dest1 =DestinosTuristicos()
     dest1.nombreCiudad = 'Mumbai'
+    dest1.descripcionCiudad = "Nueva descripcion de Mumbai"
+    dest1.precioTour = 700
+    dest1.ofertaTour = True
     return render(request,"index.html",{'dest1':dest1})
 
 """Esta vista lista todos los destinos turísticos."""
