@@ -1,4 +1,5 @@
 {% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -252,8 +253,10 @@
 						{% for dest in dests %}
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{% static 'images/destination_1.jpg' %}" alt="">
-								<div class="spec_offer text-center"><a href="#">{{dest.ofertaTour}}</a></div>
+								<img src="{{baseUrl}}/{{dest.imagenCiudad}}" alt="">
+								{% if dest.ofertaTour%}
+								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+                                {% endif %}
 							</div>
 							<div class="destination_content">
 								<div class="destination_title"><a href="destinations.html">{{dest.nombreCiudad}}</a></div>
