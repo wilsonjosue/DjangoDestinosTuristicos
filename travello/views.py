@@ -8,9 +8,18 @@ def index(request):
     dest1 =DestinosTuristicos()
     dest1.nombreCiudad = 'Mumbai'
     dest1.descripcionCiudad = "Nueva descripcion de Mumbai"
-    dest1.precioTour = 700
+    dest1.precioTour = 800
     dest1.ofertaTour = True
-    return render(request,"index.html",{'dest1':dest1})
+
+    dest2 =DestinosTuristicos()
+    dest2.nombreCiudad = 'Bali'
+    dest2.descripcionCiudad = "Nueva descripcion de Bali"
+    dest2.precioTour = 650
+    dest2.ofertaTour = False
+
+    dest=[dest1,dest2]
+
+    return render(request,"index.html",{'dest':dest})
 
 """Esta vista lista todos los destinos turísticos."""
 def listarDestinos(request):
