@@ -5,7 +5,8 @@ from .forms import DestinosTuristicosForm# Importa el modelo DestinosTuristicosF
 # Create your views here.
 """index"""
 def index(request):
-    return render(request,"index.html",{'dests':dests})
+    destinos = DestinosTuristicos.objects.all()
+    return render(request,"index.html",{'dests':destinos})
 
 """Esta vista lista todos los destinos turísticos."""
 def listarDestinos(request):
