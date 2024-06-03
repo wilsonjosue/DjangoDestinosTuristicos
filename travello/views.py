@@ -5,22 +5,8 @@ from .forms import DestinosTuristicosForm# Importa el modelo DestinosTuristicosF
 # Create your views here.
 """index"""
 def index(request):
-    dest1 =DestinosTuristicos()
-    dest1.nombreCiudad = 'Mumbai'
-    dest1.descripcionCiudad = "Nueva descripcion de Mumbai"
-    dest1.imagenCiudad = 'destination_1.jpg'
-    dest1.precioTour = 800
-    dest1.ofertaTour = True
-
-    dest2 =DestinosTuristicos()
-    dest2.nombreCiudad = 'Bali'
-    dest2.descripcionCiudad = "Nueva descripcion de Bali"
-    dest2.imagenCiudad = 'destination_2.jpg'
-    dest2.precioTour = 650
-    dest2.ofertaTour = False
-    dests=[dest1,dest2]
-
-    return render(request,"index.html",{'dests':dests})
+    destinos = DestinosTuristicos.objects.all()
+    return render(request,"index.html",{'dests':destinos})
 
 """Esta vista lista todos los destinos turísticos."""
 def listarDestinos(request):
