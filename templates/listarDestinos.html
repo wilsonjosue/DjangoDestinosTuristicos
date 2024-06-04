@@ -21,7 +21,7 @@
 
     <div class="container">
         <h1>Destinos Turísticos</h1>
-        <a href="{% url 'añadir_destino' %}">Añadir Destino</a>
+        <a href="{% url 'añadirDestino' %}">Añadir Destino</a>
         <table class="table">
             <thead>
                 <tr>
@@ -42,14 +42,14 @@
                     <td>{{ destino.precioTour }}</td>
                     <td>{{ destino.ofertaTour }}</td>
                     <td>
-                        <a href="{% url 'modificar_destino' destino.id %}">Modificar</a>
-                        <a href="{% url 'eliminar_destino' destino.id %}">Eliminar</a>
+                        <a href="{% url 'modificarDestino' destino.id %}">Modificar</a>
+                        <a href="{% url 'eliminarDestino' destino.id %}">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    
+
 </body>
 </html>
