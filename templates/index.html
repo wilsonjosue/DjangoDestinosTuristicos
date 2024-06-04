@@ -40,7 +40,9 @@
 									<li><a href="accounts/register">Register</a></li>
 									<li><a href="accounts/login">Login</a></li>
 									{% endif %}
-
+									{% if user.is_authenticated %}
+									<li><a href="{% url 'listarDestinos' %}">Gestionar Destinos</a></li>
+									{% endif %}
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
