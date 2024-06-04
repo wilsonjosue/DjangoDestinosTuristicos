@@ -11,7 +11,7 @@ def index(request):
 """Esta vista lista todos los destinos turísticos."""
 def listarDestinos(request):
     destinos = DestinosTuristicos.objects.all()#para obtener todos los registros del modelo DestinosTuristicos.
-    return render(request,'destinations.html',{'destinos': destinos})
+    return render(request,'listarDestinos.html',{'destinos': destinos})
 
 """Permite añadir un nuevo destino turístico."""
 def añadirDestino(request):
