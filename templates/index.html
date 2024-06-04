@@ -41,7 +41,6 @@
 									<li><a href="accounts/login">Login</a></li>
 									{% endif %}
 									{% if user.is_authenticated %}
-									<li><a href="{% url 'index' %}">Inicio</a></li>
 									<li><a href="{% url 'listarDestinos' %}">Gestionar Destinos</a></li>
 									{% endif %}
 								</ul>
