@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content='width=device-width, initial-scale=1'>
+    <title>Listar Destinos</title>
+    <link rel="stylesheet" type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>Destinos Turísticos</h1>
+    <a href="{% url 'añadirDestino' %}">Añadir Destino</a>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Imagen</th>
+            <th>Precio</th>
+            <th>Oferta</th>
+            <th>Acciones</th>
+        </tr>
+        {% for destino in destinos %}
+        <tr>
+            <td>{{ destino.nombreCiudad }}</td>
+            <td>{{ destino.descripcionCiudad }}</td>
+            <td><img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}" width="100"></td>
+            <td>{{ destino.precioTour }}</td>
+            <td>{{ destino.ofertaTour }}</td>
+            <td>
+                <a href="{% url 'modificarDestino' destino.id %}">Modificar</a>
+                <a href="{% url 'eliminarDestino' destino.id %}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
