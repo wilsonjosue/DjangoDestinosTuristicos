@@ -1,0 +1,84 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content='width=device-width, initial-scale=1'>
+    <title>Listar Destinos</title>
+    <meta name="description" content="Travello template project">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/destinations.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #000; /* Color negro para el texto */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+    </style>
+    <script src='main.js'></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Destinos Turísticos</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th><a href="{% url 'index' %}">Inicio</a></th>
+                    <th><a href="{% url 'añadirDestino' %}">Añadir Destinos</a></th>
+                </tr>
+            </thead>
+        </table>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Imagen</th>
+                    <th>Precio</th>
+                    <th>Oferta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for destino in destinos %}
+                <tr>
+                    <td>{{ destino.nombreCiudad }}</td>
+                    <td>{{ destino.descripcionCiudad }}</td>
+                    <td><img src="{{ destino.imagenCiudad.url }}" alt="{{ destino.nombreCiudad }}" width="100"></td>
+                    <td>{{ destino.precioTour }}</td>
+                    <td>{{ destino.ofertaTour }}</td>
+                    <td>
+                        <a href="{% url 'modificarDestino' destino.id %}">Modificar</a>
+                        <a href="{% url 'eliminarDestino' destino.id %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
